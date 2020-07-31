@@ -1,0 +1,15 @@
+<h1>スケジュールの表示</h1>
+
+<ul>
+  <li>
+    <strong>メッセージ:</strong>
+    <%= @schedule.message %>
+  </li>
+  <li>
+    <strong>日時:</strong>
+    <%= @schedule.reservation_date %>
+  </li>
+</ul>
+
+<span><%= link "編集", to: Routes.schedule_path(@conn, :edit, @schedule) %></span>
+<span><%= link "戻る", to: Routes.schedule_path(@conn, :index) %></span>

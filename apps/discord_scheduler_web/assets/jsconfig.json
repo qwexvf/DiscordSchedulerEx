@@ -1,0 +1,14 @@
+{
+  "include": ["./*"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": false,
+    "paths": {
+      "~/*": ["./*"],
+      "@/*": ["./*"],
+      "~~/*": ["./*"],
+      "@@/*": ["./*"]
+    }
+  },
+  "exclude": ["node_modules", ".nuxt", "dist"]
+}

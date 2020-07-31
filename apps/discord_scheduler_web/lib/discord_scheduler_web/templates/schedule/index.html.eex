@@ -1,0 +1,37 @@
+<h1>スケジュールリスト</h1>
+
+<div id="app">
+  {{ message }}
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>メッセージ</th>
+      <th>日時</th>
+      <th>送信状況</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for schedule <- @schedules do %>
+      <tr>
+        <td><%= schedule.message %></td>
+        <td id="state"><%= schedule.reservation_date %></td>
+        <td><%= schedule.is_sent %></td>
+        <td>
+          <%= if !schedule.is_sent do %>
+            <%= link "今すぐ送信", to: Routes.schedule_path(@conn, :send, schedule), method: :post, data: [confirm: "本当によろしいですか？"] %>
+          <% end %>
+          <%= link "表示", to: Routes.schedule_path(@conn, :show, schedule) %>
+          <%= link "編集", to: Routes.schedule_path(@conn, :edit, schedule) %>
+          <%= link "削除", to: Routes.schedule_path(@conn, :delete, schedule), method: :delete, data: [confirm: "本当によろしいですか？"] %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<span><%= link "新しいスケジュールを作成する", to: Routes.schedule_path(@conn, :new) %></span>
+
+<script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/schedules.js") %>"></script>

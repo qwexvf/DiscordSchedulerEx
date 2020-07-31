@@ -1,0 +1,5 @@
+<h1>新しいスケジュールを作成</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.schedule_path(@conn, :create)) %>
+
+<span><%= link "Back", to: Routes.schedule_path(@conn, :index) %></span>

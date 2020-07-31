@@ -1,0 +1,5 @@
+<h1>スケジュールを編集</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.schedule_path(@conn, :update, @schedule)) %>
+
+<span><%= link "戻る", to: Routes.schedule_path(@conn, :index) %></span>

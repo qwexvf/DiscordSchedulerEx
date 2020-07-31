@@ -1,0 +1,37 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>おっと、エラーが起きました！詳細は、下のエラーをご覧ください。</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, "メッセージ" %>
+    <%= textarea f, :message %>
+    <%= error_tag f, :message %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, "送信予定日時" %>
+    <%= text_input f, :reservation_date, id: "flatpickr" %>
+    <%= error_tag f, :reservation_date %>
+  </div>
+
+  <div>
+    <%= submit "送信" %>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      flatpickr("#flatpickr", {
+          enableTime: true,
+          dateFormat: 'Z',
+          altInput: true,
+          altFormat: 'Y-m-d h:i K'
+      });
+    });
+  </script>
+<% end %>
