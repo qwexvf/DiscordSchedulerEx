@@ -1,4 +1,4 @@
-defmodule DiscordScheduler.Releases do
+defmodule DiscordScheduler.Release do
   @start_apps [
     :postgrex,
     :ecto,
