@@ -7,7 +7,8 @@ defmodule DiscordScheduler.Umbrella.MixProject do
       version: "0.0.1",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      releases: releases()
+      releases: releases(),
+      default_release: :app,
     ]
   end
 
