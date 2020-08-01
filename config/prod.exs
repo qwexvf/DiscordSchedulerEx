@@ -7,19 +7,19 @@ config :discord_scheduler_web, DiscordSchedulerWeb.Endpoint,
 
 config :discord_scheduler, DiscordScheduler.Repo,
   ssl: true,
-  url: System.get_env( "DATABASE_URL" ),
+  url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "2")
 
 config :exq,
   name: Exq,
-  url: System.get_env( "REDIS_URL" ),
+  url: System.get_env("REDIS_URL"),
   namespace: "exq",
   concurrency: :infinite,
   queues: ["default"],
   poll_timeout: 50,
   scheduler_poll_timeout: 200,
   scheduler_enable: true,
-  max_retries: 25,
+  max_retries: 3,
   shutdown_timeout: 5000
 
 config :discord_bot,
