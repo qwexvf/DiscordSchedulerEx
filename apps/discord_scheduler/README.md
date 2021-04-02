@@ -1,0 +1,3 @@
+# DiscordScheduler
+
+**TODO: Add description**
